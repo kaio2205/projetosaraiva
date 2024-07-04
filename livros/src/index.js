@@ -1,5 +1,6 @@
 require("dotenv").config()
 const express = require("express")
+const cors = require("cors")
 const route_titulo = require("./routes/titulos.js")
 const route_precos  = require("./routes/preco/precos.js")
 const route_foto  = require("./routes/fotos/fotos.js")
@@ -8,7 +9,7 @@ const route_foto  = require("./routes/fotos/fotos.js")
 const app = express()
 
 app.use(express.json())
-
+app.use(cors())
 app.use("/api/v1/livros",route_titulo)
 app.use("/api/v1/precos",route_precos)
 app.use("/api/v1/foto",route_foto)
